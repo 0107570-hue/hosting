@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역 선택 TV CF 광고 - 맞춤 제안서</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-main: #D92323;
+            --primary-dark: #8C0B08;
+            --primary-light: #F2A99B;
+            --primary-lighter: #F5EBD8;
+            --neutral-black: #1A1712;
+            --neutral-dark: #6B6968;
+            --neutral-medium: #D0CCBF;
+            --neutral-light: #F0EEE9;
+            --neutral-lighter: #F9F7F3;
+            --success: #50A967;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--neutral-lighter);
+            line-height: 1.7;
+            color: var(--neutral-black);
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* ========== HERO HEADER ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .customer-greeting {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        /* ========== INTRO SECTION ========== */
+        .intro-section {
+            padding: 80px 60px;
+            background: white;
+        }
+
+        /* ========== ACCORDION SECTION ========== */
+        .accordion-section {
+            padding: 80px 60px;
+            background: var(--primary-lighter);
+        }
+
+        .accordion-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: 8px;
+            border: 2px solid var(--primary-light);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 28px 32px;
+            background: var(--neutral-lighter);
+            border-bottom: 2px solid var(--primary-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: var(--neutral-light);
+        }
+
+        .accordion-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--neutral-black);
+        }
+
+        .accordion-title strong {
+            color: var(--primary-main);
+            font-size: 20px;
+        }
+
+        .accordion-icon {
+            font-size: 14px;
+            color: var(--primary-main);
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.open {
+            max-height: 1000px;
+        }
+
+        .pain-points {
+            padding: 40px 32px 0;
+        }
+
+        .pain-points h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-main);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-main);
+            padding-left: 16px;
+        }
+
+        .pain-points ul {
+            margin: 0 0 40px 32px;
+        }
+
+        .pain-points li {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .pain-points li:before {
+            color: var(--primary-light);
+        }
+
+        .custom-message {
+            padding: 0 32px 40px;
+            background: linear-gradient(135deg, rgba(217, 35, 35, 0.06) 0%, rgba(242, 169, 155, 0.06) 100%);
+            border-left: 4px solid var(--primary-main);
+            margin: 24px 32px 0;
+            padding-left: 32px;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--neutral-black);
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .intro-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--neutral-dark);
+            margin-bottom: 16px;
+        }
+
+        .intro-image {
+            background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: rgba(217, 35, 35, 0.2);
+        }
+
+        /* ========== MAIN SECTIONS ========== */
+        section {
+            padding: 80px 60px;
+            border-bottom: 1px solid var(--neutral-light);
+        }
+
+        section:nth-child(even) {
+            background: var(--neutral-lighter);
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            background: var(--primary-main);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 22px;
+            margin-right: 16px;
+            vertical-align: middle;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-main);
+            margin: 36px 0 20px;
+            padding-left: 16px;
+            border-left: 4px solid var(--primary-main);
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            color: var(--neutral-black);
+        }
+
+        section strong {
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        section ul {
+            margin: 24px 0 24px 32px;
+            list-style: none;
+        }
+
+        section ul li {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 14px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        section ul li:before {
+            content: "▸";
+            color: var(--primary-main);
+            font-weight: 700;
+            display: inline-block;
+            width: 12px;
+            margin-left: -12px;
+            margin-right: 8px;
+        }
+
+        /* ========== CONTENT GRID ========== */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .grid-image {
+            background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(217, 35, 35, 0.15);
+        }
+
+        .grid-text h3 {
+            margin-top: 0;
+        }
+
+        /* ========== INSIGHT BOX ========== */
+        .insight-box {
+            background: linear-gradient(135deg, rgba(217, 35, 35, 0.08) 0%, rgba(242, 169, 155, 0.08) 100%);
+            border-left: 4px solid var(--primary-main);
+            padding: 32px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .insight-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .insight-box p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .insight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== TWO COLUMN ========== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .column {
+            background: var(--primary-lighter);
+            padding: 36px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .column h4 {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-main);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .column h4:before {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-right: 10px;
+            background: var(--primary-main);
+            color: white;
+            border-radius: 50%;
+            line-height: 28px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .column:nth-child(1) h4:before { content: "📺"; background: transparent; }
+        .column:nth-child(2) h4:before { content: "🎯"; background: transparent; }
+
+        .column ul {
+            margin: 0;
+        }
+
+        .column ul li:before {
+            color: var(--primary-light);
+        }
+
+        /* ========== STATS SECTION ========== */
+        .stats-section {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            padding: 48px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.18);
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .stat-desc {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* ========== COMPARISON ========== */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .comparison-card {
+            background: var(--primary-lighter);
+            padding: 40px 32px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-main);
+        }
+
+        .comparison-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-main);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .comparison-card ul {
+            margin: 0;
+        }
+
+        /* ========== FEATURE BOX ========== */
+        .feature-box {
+            background: white;
+            border: 2px solid var(--primary-main);
+            padding: 40px 32px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .feature-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-main);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: var(--neutral-dark);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 28px;
+            font-size: 42px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 48px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 18px 48px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+        }
+
+        .cta-primary:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--neutral-black);
+            color: white;
+            padding: 56px 60px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .company-name {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        footer .disclaimer {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 24px;
+        }
+
+        /* ========== PRINT ========== */
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 30px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .accordion-section {
+                padding: 60px 30px;
+            }
+
+            .accordion-section h2 {
+                font-size: 28px;
+            }
+
+            .accordion-header {
+                padding: 20px 24px;
+            }
+
+            .accordion-title {
+                font-size: 16px;
+            }
+
+            .accordion-title strong {
+                font-size: 18px;
+            }
+
+            .pain-points,
+            .custom-message {
+                padding: 30px 24px !important;
+                margin: 20px 24px !important;
+            }
+
+            .pain-points ul {
+                margin: 0 0 30px 24px;
+            }
+
+            .intro-section,
+            section,
+            .cta-section {
+                padding: 60px 30px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .intro-grid,
+            .content-grid,
+            .two-column,
+            .stats-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image,
+            .grid-image {
+                height: 250px;
+                font-size: 60px;
+            }
+
+            .stats-grid {
+                gap: 24px;
+            }
+
+            .stat-card {
+                padding: 32px 24px;
+            }
+
+            .stat-value {
+                font-size: 32px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ========== HERO ========== -->
+        <div class="hero">
+            <div class="hero-content">
+                <span class="hero-icon">⛳</span>
+                <div class="badge">TV CF 광고 솔루션</div>
+                <div class="customer-greeting">안녕하세요 인천청라골프연습장님</div>
+                <h1>지역에서 가장 먼저 떠올리는<br>그 브랜드가 될 수 있습니다</h1>
+                <p class="hero-subtitle">온라인 광고만으로는 만들 수 없는<br>지역 내 강한 인식을 TV 광고로 확보하기</p>
+            </div>
+        </div>
+
+        <!-- ========== ACCORDION SECTION ========== -->
+        <section class="accordion-section">
+            <div class="section-container">
+                <h2>당신의 사업을 잘 알고 있습니다</h2>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">
+                            <strong>인도 골프연습장</strong> - 현재 상황 파악
+                        </span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="pain-points">
+                            <h3>인도 골프연습장 사업자가 겪고 있는 어려움</h3>
+                            <ul>
+                                <li>개업한 지 1년이 되었지만 아직 청라지구 및 인근 지역에서 충분히 알려지지 않아 신규 고객 유입이 저조합니다</li>
+                                <li>온라인 광고만으로는 200야드 장거리, 필드형 숏게임장, 예약 불필요 등의 강점을 제대로 전달하기 어렵습니다</li>
+                                <li>청라지구의 신흥 상권으로 향후 유사 골프연습장 개업 가능성이 높아지면서 경쟁이 심화될 예상입니다</li>
+                                <li>자동차 20분 거리 내 타겟층(30-60대 골프 애호가)이 충분히 인지하지 못해 잠재 고객층이 미개척되어 있습니다</li>
+                            </ul>
+                        </div>
+                        <div class="custom-message">
+                            <p><strong>우리가 할 수 있는 일:</strong><br>
+                            지역 선택 TV 광고를 통해 당신의 인도 골프연습장을 "청라지구에서 가장 먼저 생각나는 프리미엄 연습장"으로 만들 것입니다. 200야드 긴 거리, 필드형 숏게임장, 그리고 예약 없이 바로 연습 가능한 강점을 반복 노출하며, 30-60대 골프 애호가들에게 자연스럽게 각인되어 신규 회원 유입으로 이어질 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== INTRO ========== -->
+        <div class="intro-section">
+            <div class="section-container">
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <h2>온라인 광고, 그 다음은?</h2>
+                        <p>당신은 이미 온라인 광고로 충분히 고객을 모으고 계실 겁니다. 그 노력이 있기에 지금의 사업이 있는 거죠.</p>
+                        <p>하지만 온라인 광고 비용은 계속 올라가고, 더 많은 경쟁사들이 같은 채널에 모여있습니다.</p>
+                        <p>그렇다면 <strong>다른 방식으로, 지역 내에서 상위인식을 만드는 것</strong>은 어떨까요?</p>
+                    </div>
+                    <div class="intro-image">⛳</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SECTION 1 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">1</span>
+                    현재 상황, 함께 살펴봅시다
+                </h2>
+
+                <p>온라인과 다른 방식의 광고가 필요한 이유는 간단합니다.</p>
+
+                <h3>온라인 광고의 현실</h3>
+                <ul>
+                    <li>클릭당 비용이 계속 올라가고 있습니다</li>
+                    <li>더 많은 경쟁사들이 같은 채널에 광고 중입니다</li>
+                    <li>광고는 노출되지만, "그 브랜드"로 기억되기 어렵습니다</li>
+                </ul>
+
+                <div class="insight-box">
+                    <p><strong class="insight-title">💡 핵심</strong></p>
+                    <p>온라인 광고는 "클릭"을 만들고, TV 광고는 "기억"을 만듭니다.</p>
+                    <p>두 가지를 함께 하면, 단순 노출에서 벗어나 실제 고객 방문으로 이어질 수 있습니다.</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="grid-text">
+                        <h3>다른 접근이 필요한 이유</h3>
+                        <p>당신의 지역은 경쟁이 많을 겁니다. 같은 업종의 경쟁사들이 온라인 광고만 하고 있는 상황에서, <strong>당신이 TV에 나온다는 것 자체가 차별화</strong>가 됩니다.</p>
+                        <p>그리고 더 중요한 것은, TV 광고는 광고를 멈춘 후에도 고객들이 계속 찾아온다는 점입니다.</p>
+                    </div>
+                    <div class="grid-image">🎬</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 2 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">2</span>
+                    지역 TV 광고의 방식
+                </h2>
+
+                <p><strong>지역 선택 TV CF 광고</strong>는 당신의 고객이 있는 특정 지역에만 집중해서 광고를 송출하고, 반복 노출을 통해 그 지역 내에서 강한 인식을 만드는 방식입니다.</p>
+
+                <div class="content-grid">
+                    <div class="grid-image">📡</div>
+                    <div class="grid-text">
+                        <h3>어떻게 작동하는가</h3>
+                        <ul>
+                            <li>당신의 타겟이 많은 지역을 선택합니다</li>
+                            <li>그 지역에만 광고를 집중 송출합니다</li>
+                            <li>고객이 자주 보는 시간대와 채널을 선택합니다</li>
+                            <li>반복 노출로 자연스러운 상위인식을 만듭니다</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>효과 발현 타이밍</h3>
+                <div class="two-column">
+                    <div class="column">
+                        <h4>🔄 반복 노출</h4>
+                        <ul>
+                            <li>1주일: 광고 노출 시작</li>
+                            <li>2주일: "어디서 봤는데?" 느낌</li>
+                            <li>1개월: 자연스럽게 떠올라짐</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4>💰 고객 이동</h4>
+                        <ul>
+                            <li>2개월: 실제 고객 방문 시작</li>
+                            <li>3개월: 안정적인 고객층 형성</li>
+                            <li>이후: 광고 중단 후에도 지속</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 3 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">3</span>
+                    구체적 설계 방법
+                </h2>
+
+                <h3>① 지역 선택</h3>
+                <p>당신의 고객이 있는 특정 지역에만 광고를 설정합니다. 광역이 아닌 구체적인 권역 단위로 타겟을 정해, 효율을 극대화합니다.</p>
+
+                <h3>② 방송사업자 선택</h3>
+                <p>각 지역마다 여러 경로가 있습니다. 케이블TV와 IPTV(KT, SK, LG)를 통해 노출 강도를 조절합니다.</p>
+
+                <h3>③ 채널과 시간대</h3>
+                <p>당신의 타겟 고객이 주로 보는 채널과 시간대를 선택합니다. 예를 들어 30-60대라면 뉴스, 교양, 스포츠 채널 등에 중점을 두고, 이른 아침, 점심시간, 저녁 시간대에 집중합니다.</p>
+
+                <div class="content-grid">
+                    <div class="grid-text">
+                        <h3>결과적으로</h3>
+                        <p>당신의 고객이 TV를 켜는 바로 그 시간에, 당신의 광고가 노출됩니다.</p>
+                        <p>이것이 반복되면서 자연스럽게 "그 브랜드"가 되는 거죠.</p>
+                    </div>
+                    <div class="grid-image">📊</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== STATS SECTION ========== -->
+        <section class="stats-section">
+            <div class="section-container">
+                <h2>기대할 수 있는 효과</h2>
+                <p style="font-size: 18px; margin-bottom: 60px; opacity: 0.95;">월 200만 원 광고비 기준 (3개월 진행시)</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">👥</span>
+                        <div class="stat-label">월 신규 회원</div>
+                        <div class="stat-value">8~12명</div>
+                        <div class="stat-desc">반복 노출을 통한 신규 등록</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🔄</span>
+                        <div class="stat-label">월 재방문율</div>
+                        <div class="stat-value">45~55%</div>
+                        <div class="stat-desc">자연스러운 브랜드 각인</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">💰</span>
+                        <div class="stat-label">예상 월 매출증가</div>
+                        <div class="stat-value">+240~360만</div>
+                        <div class="stat-desc">신규회원 + 재방문 매출</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 4 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">4</span>
+                    비용 구조와 효율성
+                </h2>
+
+                <div class="feature-box">
+                    <div class="feature-value">월 200만 원</div>
+                    <div class="feature-desc">인천청라지구 기준 | 30초 TV CF</div>
+                </div>
+
+                <h3>구체적 구성</h3>
+                <ul>
+                    <li><strong>월 광고비:</strong> 180만 원 ~ 280만 원 (지역·시간대별 조정 가능)</li>
+                    <li><strong>광고 길이:</strong> 30초 TV CF (골프연습장 강점 강조)</li>
+                    <li><strong>최소 계약:</strong> 3개월 (효과가 나타나는 기간)</li>
+                </ul>
+
+                <h3>온라인과의 효율 비교</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>📱 온라인 광고</h4>
+                        <ul>
+                            <li>월 200만원 투자</li>
+                            <li>클릭당 단가 높음</li>
+                            <li>약 60~80회 클릭</li>
+                            <li>신규회원 약 2~3명</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>📺 TV 광고</h4>
+                        <ul>
+                            <li>월 200만원 투자</li>
+                            <li>약 380회 노출</li>
+                            <li>강한 브랜드 각인</li>
+                            <li>신규회원 8~12명</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <p><strong class="insight-title">💡 비교 포인트</strong></p>
+                    <p>같은 비용으로 <strong>5배 이상의 신규 회원 확보</strong>와 함께, 지역 내 프리미엄 연습장으로서의 강한 이미지를 동시에 만들 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 5 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">5</span>
+                    왜 지금인가
+                </h2>
+
+                <div class="content-grid">
+                    <div class="grid-image">⏰</div>
+                    <div class="grid-text">
+                        <h3>온라인 광고의 한계</h3>
+                        <p>클릭당 비용이 매년 30% 이상 상승하고 있습니다. 경쟁도 치열해지면서 같은 효과를 얻으려면 더 많은 비용이 필요해지고 있어요.</p>
+                        <p>특히 지역 기반 골프 시설은 <strong>온라인 키워드 경쟁이 치열해 실제 고객 유입으로 연결되기 어렵습니다.</strong></p>
+                    </div>
+                </div>
+
+                <h3>TV 광고의 이점</h3>
+                <ul>
+                    <li><strong>기억의 강력함:</strong> 반복 노출로 자연스러운 각인 (특히 30-60대층)</li>
+                    <li><strong>신뢰의 신호:</strong> "TV에 나왔다"는 것 자체가 프리미엄 이미지 강화</li>
+                    <li><strong>지속성:</strong> 광고 중단 후에도 고객들의 자발적 방문 지속</li>
+                    <li><strong>경쟁 선점:</strong> 현재 대부분의 지역 골프연습장이 TV 광고를 고려하지 않음</li>
+                </ul>
+
+                <div class="insight-box">
+                    <p><strong class="insight-title">🎯 최적 조합</strong></p>
+                    <p><strong>단기 (온라인):</strong> 즉시 검색하는 고객 확보<br>
+                    <strong>중장기 (TV):</strong> 청라지구 내 상위 브랜드 포지셀닝 → 지속적 신규회원 유입</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="grid-text">
+                        <h3>개업 2년차, 지금이 기회</h3>
+                        <p>현재 시점이 매우 중요합니다. 개업 1년을 넘으면서 온라인 광고만으로는 성장 한계를 느끼신 것처럼, 경쟁 환경도 빠르게 변하고 있습니다.</p>
+                        <p><strong>지금 TV 광고로 지역 인지도 1순위를 확보하면, 향후 유사 시설이 개업해도 압도적 우위를 유지할 수 있습니다.</strong></p>
+                    </div>
+                    <div class="grid-image">🏆</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>다음 단계로 함께 나아가기</h2>
+                <p class="cta-subtitle">
+                    청라지구에서 "가장 먼저 생각나는 연습장"이 되는 것,<br>
+                    함께 만들어보고 싶습니다.
+                </p>
+                <p class="cta-subtitle">
+                    200야드 장거리와 필드형 숏게임장이라는<br>
+                    당신의 차별화된 강점을 제대로 알릴 준비가 되셨나요?
+                </p>
+
+                <div class="cta-buttons">
+                    <button class="cta-btn cta-primary">상담 신청하기</button>
+                    <button class="cta-btn cta-secondary">자세히 알아보기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer>
+            <p class="company-name">미디어서핑</p>
+            <p>지역 선택 TV CF 광고 전문 제공 업체</p>
+            <p style="margin-top: 16px; font-size: 13px;">
+                contact@mediasurfing.co.kr | Tel. 02-1234-5678
+            </p>
+            <p class="disclaimer">
+                본 제안서는 기밀 문서입니다. 무단 배포 및 복제를 금합니다.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            
+            content.classList.toggle('open');
+            icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // 첫 번째 accordion 기본 열림
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstAccordion = document.querySelector('.accordion-content');
+            const firstIcon = document.querySelector('.accordion-icon');
+            if (firstAccordion && firstIcon) {
+                firstAccordion.classList.add('open');
+                firstIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+    </script>
+</body>
+</html>
