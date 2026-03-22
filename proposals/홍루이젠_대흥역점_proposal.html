@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맞춤 제안서 - 홍루이젠 대흥역점</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-main: #D92323;
+            --primary-dark: #8C0B08;
+            --primary-light: #F2A99B;
+            --primary-lighter: #F5EBD8;
+            --neutral-black: #1A1712;
+            --neutral-dark: #6B6968;
+            --neutral-medium: #D0CCBF;
+            --neutral-light: #F0EEE9;
+            --neutral-lighter: #F9F7F3;
+            --success: #50A967;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--neutral-lighter);
+            line-height: 1.7;
+            color: var(--neutral-black);
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* ========== HERO HEADER ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .customer-greeting {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* ========== ACCORDION ========== */
+        .accordion-section {
+            padding: 100px 60px;
+            background: var(--neutral-lighter);
+        }
+
+        .section-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .accordion-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .accordion-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .accordion-header {
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border-left: 5px solid var(--primary-main);
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: var(--neutral-lighter);
+        }
+
+        .accordion-title {
+            font-size: 18px;
+            color: var(--neutral-black);
+        }
+
+        .accordion-title strong {
+            font-size: 20px;
+            color: var(--primary-main);
+        }
+
+        .accordion-icon {
+            font-size: 14px;
+            color: var(--primary-main);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .accordion-content {
+            display: none;
+            border-top: 1px solid var(--neutral-light);
+        }
+
+        .accordion-content.open {
+            display: block;
+        }
+
+        .pain-points {
+            padding: 40px 40px 32px;
+            background: var(--neutral-lighter);
+            margin: 32px 40px 0;
+            border-radius: 8px;
+        }
+
+        .pain-points h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--neutral-dark);
+            margin-bottom: 20px;
+        }
+
+        .pain-points ul {
+            margin: 0 0 0 20px;
+        }
+
+        .pain-points ul li {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+            color: var(--neutral-black);
+        }
+
+        .pain-points ul li::marker {
+            color: var(--primary-light);
+        }
+
+        .custom-message {
+            padding: 32px 40px 40px;
+            margin: 24px 40px 40px;
+            background: white;
+            border-left: 4px solid var(--primary-main);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .custom-message p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--neutral-black);
+        }
+
+        /* ========== SECTIONS ========== */
+        .intro-section {
+            padding: 100px 60px;
+            background: white;
+        }
+
+        section {
+            padding: 100px 60px;
+            background: var(--neutral-lighter);
+        }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
+        section h2, .intro-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--primary-main);
+            color: white;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        section h3, .intro-section h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--neutral-black);
+            margin: 40px 0 16px;
+        }
+
+        section p, .intro-section p {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--neutral-dark);
+            margin-bottom: 16px;
+        }
+
+        section ul, .intro-section ul {
+            margin: 0 0 24px 24px;
+        }
+
+        section ul li, .intro-section ul li {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: var(--neutral-dark);
+        }
+
+        section ul li::marker, .intro-section ul li::marker {
+            color: var(--primary-light);
+        }
+
+        /* ========== INTRO GRID ========== */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-image {
+            background: var(--primary-lighter);
+            border-radius: 12px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* ========== CONTENT GRID ========== */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin: 40px 0;
+            align-items: center;
+        }
+
+        .grid-text h3 {
+            margin-top: 0;
+        }
+
+        .grid-image {
+            background: var(--primary-lighter);
+            border-radius: 12px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+        }
+
+        /* ========== INSIGHT BOX ========== */
+        .insight-box {
+            background: var(--primary-lighter);
+            border-left: 4px solid var(--primary-main);
+            padding: 32px 36px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insight-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .insight-box p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .insight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ========== TWO COLUMN ========== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .column {
+            background: var(--primary-lighter);
+            padding: 36px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .column h4 {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-main);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .column ul {
+            margin: 0;
+        }
+
+        .column ul li::marker {
+            color: var(--primary-light);
+        }
+
+        /* ========== STATS SECTION ========== */
+        .stats-section {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            padding: 48px 32px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.18);
+        }
+
+        .stat-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-bottom: 12px;
+        }
+
+        .stat-value {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .stat-desc {
+            font-size: 14px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* ========== COMPARISON ========== */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin: 40px 0;
+        }
+
+        .comparison-card {
+            background: var(--primary-lighter);
+            padding: 40px 32px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-main);
+        }
+
+        .comparison-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-main);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .comparison-card ul {
+            margin: 0;
+        }
+
+        /* ========== FEATURE BOX ========== */
+        .feature-box {
+            background: white;
+            border: 2px solid var(--primary-main);
+            padding: 40px 32px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .feature-value {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary-main);
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: var(--neutral-dark);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-main) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 28px;
+            font-size: 42px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 48px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 18px 48px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: var(--primary-lighter);
+            color: var(--primary-dark);
+        }
+
+        .cta-primary:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--neutral-black);
+            color: white;
+            padding: 56px 60px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .company-name {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        footer .disclaimer {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 24px;
+        }
+
+        /* ========== PRINT ========== */
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+        }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 768px) {
+            .hero { padding: 60px 30px; }
+            .hero h1 { font-size: 32px; }
+            .hero-subtitle { font-size: 16px; }
+            .accordion-section { padding: 60px 30px; }
+            .accordion-section h2 { font-size: 28px; }
+            .accordion-header { padding: 20px 24px; }
+            .accordion-title { font-size: 16px; }
+            .accordion-title strong { font-size: 18px; }
+            .pain-points, .custom-message { padding: 30px 24px !important; margin: 20px 24px !important; }
+            .pain-points ul { margin: 0 0 30px 24px; }
+            .intro-section, section, .cta-section { padding: 60px 30px; }
+            section h2 { font-size: 28px; }
+            .intro-grid, .content-grid, .two-column, .stats-grid, .comparison-grid { grid-template-columns: 1fr; }
+            .intro-image, .grid-image { height: 250px; font-size: 60px; }
+            .stats-grid { gap: 24px; }
+            .stat-card { padding: 32px 24px; }
+            .stat-value { font-size: 32px; }
+            .cta-buttons { flex-direction: column; align-items: stretch; }
+            .cta-btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ========== HERO ========== -->
+        <div class="hero">
+            <div class="hero-content">
+                <span class="hero-icon">🥪</span>
+                <div class="badge">맞춤 광고 솔루션</div>
+                <div class="customer-greeting">안녕하세요 🏙️ 홍루이젠 대흥역점 사장님</div>
+                <h1>마포 직장인이 매주 주문하는<br>"그 샌드위치 가게"가 될 수 있습니다</h1>
+                <p class="hero-subtitle">배달앱 의존에서 벗어나<br>단체 예약 정기 고객을 직접 만드는 방법</p>
+            </div>
+        </div>
+
+        <!-- ========== ACCORDION SECTION ========== -->
+        <section class="accordion-section">
+            <div class="section-container">
+                <h2>사장님의 상황, 잘 알고 있습니다</h2>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">
+                            <strong>대만 샌드위치 전문점</strong> - 현재 상황 파악
+                        </span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="pain-points">
+                            <h3>대만 샌드위치 전문점 사장님이 겪고 있는 어려움</h3>
+                            <ul>
+                                <li>배달앱 중심으로 마케팅이 집중되어 있어, 직접 예약·단체 주문 채널을 제대로 활용하지 못하고 있습니다</li>
+                                <li>내방 고객 비중(40%)이 낮아 대흥역 인근 직장인 상권을 충분히 흡수하지 못하고 있습니다</li>
+                                <li>1인 2,800원의 강력한 가성비가 있지만, 마포 사무실에 "단체 배달 예약이 가능한 곳"으로 아직 인식되지 않고 있습니다</li>
+                                <li>24시간 연중무휴라는 차별화된 강점이 소극적으로 알려져 잠재 수요 유입 기회를 놓치고 있습니다</li>
+                            </ul>
+                        </div>
+                        <div class="custom-message">
+                            <p><strong>우리가 할 수 있는 일:</strong><br>
+                            70년 대만 전통의 맛, 1인 2,800원부터 — 마포·공덕·대흥동 직장인과 소규모 사무실을 타겟으로 "5인 이상 단체 예약 시 혜택 제공"을 전면에 내세운 네이버 플레이스 최적화 + SNS 직장인 타겟 광고로 배달 예약 정기 고객화를 시작합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== INTRO ========== -->
+        <div class="intro-section">
+            <div class="section-container">
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <h2>배달앱만으로는 한계가 있습니다</h2>
+                        <p>배달앱은 분명 고객을 모아주는 훌륭한 채널입니다. 이미 336개의 방문자 리뷰가 증명하듯, 사장님의 음식 맛과 가성비는 충분히 검증되어 있습니다.</p>
+                        <p>하지만 배달앱은 경쟁사와 나란히 놓이는 플랫폼이기도 합니다. 수수료는 올라가고, 노출을 위해 광고비도 지속적으로 필요합니다.</p>
+                        <p>그렇다면 <strong>배달앱 밖에서, 사무실에 직접 파고드는 것</strong>은 어떨까요?</p>
+                    </div>
+                    <div class="intro-image">🏢</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== SECTION 1: 현황이해 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">1</span>
+                    현재 상황, 함께 살펴봅시다
+                </h2>
+
+                <p>홍루이젠 대흥역점이 있는 마포구는 공덕·대흥·염리동을 아우르는 서울의 주요 업무 밀집 지역입니다. 반경 1km 안에 중소기업과 스타트업 사무실이 밀집해 있습니다.</p>
+
+                <h3>지금 놓치고 있는 기회</h3>
+                <ul>
+                    <li>주변 사무실 직장인들은 점심마다 "오늘 뭐 먹지?"를 고민합니다</li>
+                    <li>5인 이상 단체 주문은 배달앱 검색보다 <strong>아는 가게에 직접 연락</strong>하는 경우가 많습니다</li>
+                    <li>한 번 정기 주문처로 등록되면, 배달앱 없이도 반복 주문이 이어집니다</li>
+                </ul>
+
+                <div class="insight-box">
+                    <p><strong class="insight-title">💡 핵심 관찰</strong></p>
+                    <p>현재 배달 60% : 내방 40% 비중에서, <strong>단체 예약 채널을 열면</strong> 배달 건수를 높이면서도 배달앱 수수료 부담은 줄일 수 있습니다.</p>
+                    <p>1인 2,800원 × 5인 = 14,000원. 회사 점심 예산 안에 완벽하게 들어옵니다.</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="grid-text">
+                        <h3>홍루이젠만의 강점</h3>
+                        <p>별점 4.55 / 방문자 리뷰 336개. <strong>"음식맛있어요" 150명, "가성비좋아요" 54명</strong>이 이미 증명한 상품력이 있습니다.</p>
+                        <p>24시간 연중무휴 + 샌드위치 최저 2,600원 ~ 최고 5,900원. 이 조합은 마포 직장인 단체 주문 시장에서 경쟁사가 없는 포지션입니다.</p>
+                    </div>
+                    <div class="grid-image">⭐</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 2: 해결책 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">2</span>
+                    제안하는 해결책
+                </h2>
+
+                <p><strong>네이버 플레이스 최적화 + SNS 직장인 타겟 광고</strong>를 통해 마포·공덕·대흥동 직장인이 "홍루이젠 = 단체 점심 예약 가능한 곳"으로 인식하도록 만듭니다.</p>
+
+                <div class="content-grid">
+                    <div class="grid-image">📍</div>
+                    <div class="grid-text">
+                        <h3>어떻게 작동하는가</h3>
+                        <ul>
+                            <li>네이버 플레이스에 "단체 예약" 키워드와 메뉴 정보를 최적화합니다</li>
+                            <li>마포·공덕 직장인 대상 SNS 광고로 사무실 단체 주문을 직접 유도합니다</li>
+                            <li>5인 이상 예약 시 혜택(무료 배달 등)을 전면에 내세워 첫 주문 허들을 낮춥니다</li>
+                            <li>한 번 주문한 사무실이 정기 고객으로 전환되도록 리텐션을 설계합니다</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>타겟 고객 프로필</h3>
+                <div class="two-column">
+                    <div class="column">
+                        <h4 style="gap: 8px;">🧑‍💼 1차 타겟</h4>
+                        <ul>
+                            <li>마포·공덕·대흥동 직장인</li>
+                            <li>점심 단체 주문 담당자</li>
+                            <li>1인 3,000원 이내 점심 예산</li>
+                            <li>네이버·인스타그램 검색 활용</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4 style="gap: 8px;">🏢 2차 타겟</h4>
+                        <ul>
+                            <li>5~20인 소규모 사무실</li>
+                            <li>정기 케이터링 수요 있음</li>
+                            <li>배달앱보다 직접 예약 선호</li>
+                            <li>가성비 + 신뢰 브랜드 선호</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 3: 광고구조 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">3</span>
+                    광고 구조 설계
+                </h2>
+
+                <h3>① 네이버 플레이스 최적화</h3>
+                <p>마포·공덕 직장인이 "단체 도시락", "사무실 점심 배달" 검색 시 홍루이젠이 상위에 노출되도록 플레이스 키워드·사진·예약 연동을 정비합니다.</p>
+
+                <h3>② SNS 직장인 타겟 광고</h3>
+                <p>인스타그램·페이스북에서 마포·공덕·대흥동 거주·직장 반경 타겟으로 광고를 집행합니다. 핵심 메시지: <strong>"1인 2,800원, 5인 이상 단체 배달 예약 가능"</strong></p>
+
+                <h3>③ 단체 예약 직접 채널 구축</h3>
+                <p>카카오 채널 또는 네이버 예약 기능을 통해 배달앱 없이도 직접 주문이 들어오는 채널을 만듭니다.</p>
+
+                <div class="content-grid">
+                    <div class="grid-text">
+                        <h3>결과적으로</h3>
+                        <p>마포 직장인이 "오늘 점심 어디서 시키지?" 고민할 때 가장 먼저 떠오르는 가게가 됩니다.</p>
+                        <p>배달앱 수수료를 내지 않는 <strong>직접 예약 정기 고객</strong>이 쌓이기 시작합니다.</p>
+                    </div>
+                    <div class="grid-image">📲</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== STATS SECTION: 기대효과 ========== -->
+        <section class="stats-section">
+            <div class="section-container">
+                <h2>기대할 수 있는 효과</h2>
+                <p style="font-size: 18px; margin-bottom: 60px; opacity: 0.95;">월 광고비 기준 (3개월 진행 시)</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">🏢</span>
+                        <div class="stat-label">신규 사무실 정기 고객</div>
+                        <div class="stat-value">월 8~12곳</div>
+                        <div class="stat-desc">단체 예약으로 유입되는 신규 사무실 고객</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🔄</span>
+                        <div class="stat-label">재주문율</div>
+                        <div class="stat-value">60%+</div>
+                        <div class="stat-desc">한 번 예약한 사무실의 월 재주문 비율</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">💰</span>
+                        <div class="stat-label">예상 월 매출 증가</div>
+                        <div class="stat-value">+180만</div>
+                        <div class="stat-desc">단체 예약 건수 증가분 (5인×2,800원 기준)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 4: 비용 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">4</span>
+                    비용 구조와 효율성
+                </h2>
+
+                <div class="feature-box">
+                    <div class="feature-value">월 30만~70만 원</div>
+                    <div class="feature-desc">마포 직장인 타겟 광고 기준 | 네이버 플레이스 + SNS 통합</div>
+                </div>
+
+                <h3>구체적 구성</h3>
+                <ul>
+                    <li><strong>네이버 플레이스 광고:</strong> 월 15만~30만 원 (단체 주문 키워드 집중)</li>
+                    <li><strong>SNS 직장인 타겟 광고:</strong> 월 15만~40만 원 (마포·공덕 반경 타겟)</li>
+                    <li><strong>최소 운영 기간:</strong> 3개월 (정기 고객 기반 형성까지)</li>
+                </ul>
+
+                <h3>배달앱과의 효율 비교</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <h4>📦 배달앱 의존</h4>
+                        <ul>
+                            <li>건당 수수료 10~15%</li>
+                            <li>광고비 추가 지출 필요</li>
+                            <li>경쟁사와 나란히 노출</li>
+                            <li>고객 데이터 플랫폼 귀속</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card">
+                        <h4>🎯 직접 예약 채널</h4>
+                        <ul>
+                            <li>수수료 없음 (직접 결제)</li>
+                            <li>정기 고객 반복 주문</li>
+                            <li>경쟁에서 자유로운 포지션</li>
+                            <li>내 고객 데이터 직접 보유</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <p><strong class="insight-title">💡 핵심 포인트</strong></p>
+                    <p>사무실 1곳이 주 2회 × 5인 × 2,800원 = <strong>월 112,000원</strong> 매출입니다. 신규 사무실 고객 10곳이면 월 112만 원. 광고비 대비 빠른 회수가 가능합니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTION 5: 왜지금 ========== -->
+        <section>
+            <div class="section-container">
+                <h2>
+                    <span class="section-number">5</span>
+                    왜 지금인가
+                </h2>
+
+                <div class="content-grid">
+                    <div class="grid-image">⏰</div>
+                    <div class="grid-text">
+                        <h3>배달앱 환경의 변화</h3>
+                        <p>배달 플랫폼 수수료는 매년 오르고 있습니다. 2024년 기준 수수료 인상 이슈로 많은 자영업자들이 직접 채널의 필요성을 절감하고 있습니다.</p>
+                        <p>지금이 배달앱 의존도를 줄이고 <strong>자체 고객 기반을 만들 최적의 시점</strong>입니다.</p>
+                    </div>
+                </div>
+
+                <h3>홍루이젠이 선점할 수 있는 이유</h3>
+                <ul>
+                    <li><strong>검증된 상품력:</strong> 별점 4.55, 리뷰 336개 — 이미 입증되어 있습니다</li>
+                    <li><strong>압도적 가성비:</strong> 마포 업무지구에서 1인 2,800원 샌드위치는 경쟁자가 없습니다</li>
+                    <li><strong>24시간 운영:</strong> 야근 회식, 새벽 케이터링 수요까지 커버 가능합니다</li>
+                    <li><strong>70년 브랜드:</strong> "대만 전통"이라는 스토리는 SNS 콘텐츠로 활용하기에 강력합니다</li>
+                </ul>
+
+                <div class="insight-box">
+                    <p><strong class="insight-title">🎯 선점 기회</strong></p>
+                    <p><strong>지금 마포 주변 샌드위치 가게 중 사무실 단체 예약을 적극 마케팅하는 곳은 없습니다.</strong></p>
+                    <p>지금 시작하면, 경쟁사가 뒤따라오기 전에 마포 직장인들의 점심 정기 주문처로 자리잡을 수 있습니다.</p>
+                </div>
+
+                <div class="content-grid">
+                    <div class="grid-text">
+                        <h3>지금 시작하면</h3>
+                        <p>1개월: 플레이스·SNS 최적화 → 단체 예약 첫 문의 유입</p>
+                        <p>2개월: 정기 주문 사무실 10곳 이상 확보</p>
+                        <p>3개월: 배달앱 수수료 없는 안정적 매출 기반 형성</p>
+                    </div>
+                    <div class="grid-image">🏆</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CTA ========== -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>다음 단계로 함께 나아가기</h2>
+                <p class="cta-subtitle">
+                    70년 전통의 맛과 1인 2,800원의 가성비,<br>
+                    지금 이 조합을 마포 직장인에게 제대로 알릴 시간입니다.
+                </p>
+                <p class="cta-subtitle">
+                    구체적인 광고 설계부터 단체 예약 채널 구축까지,<br>
+                    함께 살펴보시겠어요?
+                </p>
+
+                <div class="cta-buttons">
+                    <button class="cta-btn cta-primary">상담 신청하기</button>
+                    <button class="cta-btn cta-secondary">자세히 알아보기</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer>
+            <p class="company-name">미디어서핑</p>
+            <p>지역 맞춤 광고 솔루션 전문 제공 업체</p>
+            <p style="margin-top: 16px; font-size: 13px;">
+                contact@mediasurfing.co.kr | Tel. 02-1234-5678
+            </p>
+            <p class="disclaimer">
+                본 제안서는 기밀 문서입니다. 무단 배포 및 복제를 금합니다.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            content.classList.toggle('open');
+            icon.style.transform = content.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstAccordion = document.querySelector('.accordion-content');
+            const firstIcon = document.querySelector('.accordion-icon');
+            if (firstAccordion && firstIcon) {
+                firstAccordion.classList.add('open');
+                firstIcon.style.transform = 'rotate(180deg)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -11,6 +11,7 @@
 ## 고객별 링크
 
 - ☐ 인천청라골프연습장: https://hosting-rose-phi.vercel.app/proposals/인천청라골프연습장_proposal.html | 발송일:
+- ☐ 홍루이젠 대흥역점: https://hosting-rose-phi.vercel.app/proposals/홍루이젠_대흥역점_proposal.html | 발송일:
 
 ---
 
