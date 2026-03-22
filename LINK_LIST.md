@@ -12,6 +12,7 @@
 
 - ☐ 인천청라골프연습장: https://hosting-rose-phi.vercel.app/proposals/인천청라골프연습장_proposal.html | 발송일:
 - ☐ 홍루이젠 대흥역점: https://hosting-rose-phi.vercel.app/proposals/hongruijian_daeheung_proposal.html | 발송일:
+- ☐ 다이도코로 부산롯데백화점: https://hosting-rose-phi.vercel.app/proposals/daidokoro_busan_lotte_proposal.html | 발송일:
 
 ---
 
